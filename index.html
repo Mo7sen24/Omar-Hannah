@@ -234,11 +234,12 @@ window.scrollTo(0,0);
 ["touchmove","wheel"].forEach(ev=>window.addEventListener(ev,e=>{if(lock)e.preventDefault()},{passive:false}));
 window.addEventListener("keydown",e=>{if(lock&&e.target!==$("#cover")&&[" ","ArrowDown","ArrowUp","PageDown","PageUp","End","Home"].includes(e.key))e.preventDefault()});
 const unlock=()=>{lock=false;document.documentElement.classList.remove("locked")};
+const dropCover=c=>{const h=c.offsetHeight;c.style.display="none";window.scrollTo({top:Math.max(0,window.scrollY-h),left:0,behavior:"instant"})};
 const openInv=()=>{
  const cover=$("#cover"),dg=$("#dg"),tile=dg.querySelector(".d.c");
  if(busy)return;
  startMusic();
- if(!cover.animate||matchMedia("(prefers-reduced-motion:reduce)").matches){unlock();dg.scrollIntoView({behavior:"smooth",block:"start"});return}
+ if(!cover.animate||matchMedia("(prefers-reduced-motion:reduce)").matches){unlock();dropCover(cover);window.scrollTo(0,0);return}
  busy=hold=true;
  const cr=cover.getBoundingClientRect(),cx=cr.left+cr.width/2,cy=cr.top+cr.height/2;
  const S=parseFloat(getComputedStyle(cover.querySelector(".cv")).width);
@@ -258,7 +259,7 @@ const openInv=()=>{
  fly.querySelector(".cvt").animate([{opacity:1},{opacity:0}],{duration:300,fill:"forwards"});
  fly.querySelector(".cv").animate([{opacity:1},{opacity:1,offset:.78},{opacity:0}],{duration:D,fill:"forwards"});
  setTimeout(()=>tile.classList.add("sh"),D*.65);
- setTimeout(()=>{fly.remove();cover.style.visibility="";hold=false;show(dg);tile.classList.remove("f","sh");busy=false;unlock();afterOpen()},D+60);
+ setTimeout(()=>{fly.remove();dropCover(cover);hold=false;show(dg);tile.classList.remove("f","sh");busy=false;unlock();afterOpen()},D+60);
 };
 $("#cover").addEventListener("click",openInv);
 $("#cover").addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();openInv()}});
