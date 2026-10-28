@@ -2,6 +2,7 @@
 <html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Omar &amp; Hannah – Wedding Invitation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500&display=swap">
 <style>
 :root{--ink:#1f3354;--soft:#4d6080;--gold:#b08a4a;--blue:#3d5f90;--W:min(100vw,480px);box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
@@ -54,6 +55,7 @@ body{background:var(--bluebase)}
 .fab svg{width:22px;height:22px}
 #mbtn{left:16px;background:#8a2a2e;color:#fff;border:0}
 #sbtn{right:16px;background:#f6ede1;color:#1f3354;border:1px solid #1f3354}
+.js .cover:not(.ready){visibility:hidden}
 /* cover -> first tile transition */
 html.locked,html.locked body{overflow:hidden;overscroll-behavior:none}
 html.locked body{touch-action:none}
@@ -69,7 +71,7 @@ html.locked body{touch-action:none}
 .cover .amp{font-size:calc(var(--W)*.075);margin:calc(var(--W)*.012) 0 calc(var(--W)*.008);line-height:1}
 .cover .cvd{font-family:"Cormorant Garamond",serif;font-weight:500;font-size:calc(var(--W)*.034);letter-spacing:.2em;color:var(--soft);font-variant-numeric:oldstyle-nums;margin-bottom:calc(var(--W)*.13)}
 .cover:focus-visible{outline:2px solid var(--gold);outline-offset:-4px}
-@media (prefers-reduced-motion:no-preference){.cover .cv{animation:cvin 1.3s cubic-bezier(.16,.8,.2,1) both}.cover .cvt>*{animation:rise 1s ease both}.cover .cvt>:nth-child(2){animation-delay:.2s}.cover .cvt>:nth-child(3){animation-delay:.4s}.cover .tap{animation:rise 1s 1s ease both,nudge 2.4s 2.2s ease-in-out infinite}@keyframes cvin{from{opacity:0;transform:translate(-50%,-50%) scale(.9)}}}
+@media (prefers-reduced-motion:no-preference){.cover.ready .cv{animation:cvin 1.3s cubic-bezier(.16,.8,.2,1) both}.cover.ready .cvt>*{animation:rise 1s ease both}.cover.ready .cvt>:nth-child(2){animation-delay:.2s}.cover.ready .cvt>:nth-child(3){animation-delay:.4s}.cover.ready .tap{animation:rise 1s 1s ease both,nudge 2.4s 2.2s ease-in-out infinite}@keyframes cvin{from{opacity:0;transform:translate(-50%,-50%) scale(.9)}}}
 .js .wrap{transition:transform .9s cubic-bezier(.16,.8,.2,1),opacity .8s ease}
 .js .wrap.rv:not(.in){opacity:0;transform:translateX(var(--wx,-60px)) rotate(var(--wr,-2deg))}
 .js .wrap.rv:not(.in) .card>*{opacity:0;transform:translateY(18px)}
@@ -229,6 +231,7 @@ function scal(n){const r=35.355/(n+.7071),h=50-r,p=[[50,50-h],[50+h,50],[50,50+h
 R.setProperty("--m19",scal(19));R.setProperty("--m44",scal(44));
 /* cover (page 1) */
 $("#cvdate").innerHTML=`${dd} · ${mon.toUpperCase()} · ${yr}`;
+(()=>{const go=()=>$("#cover").classList.add("ready"),f=document.fonts;if(!f||!f.load){go();return}Promise.race([Promise.all([f.load('500 1em "Cormorant Garamond"'),f.load('400 1em "Cormorant Garamond"'),f.load('400 1em "Jost"')]),new Promise(r=>setTimeout(r,2500))]).then(go,go)})();
 let hold=false,busy=false,lock=true;
 window.scrollTo(0,0);
 ["touchmove","wheel"].forEach(ev=>window.addEventListener(ev,e=>{if(lock)e.preventDefault()},{passive:false}));
