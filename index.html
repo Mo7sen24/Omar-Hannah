@@ -5,12 +5,12 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500&display=swap">
 <style>
-:root{--ink:#1f3354;--soft:#4d6080;--gold:#b08a4a;--blue:#6b7f66;--W:min(100vw,480px);box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+:root{--ink:#1f3354;--soft:#4d6080;--gold:#b08a4a;--blue:#6b1d2e;--W:min(100vw,480px);box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
 html{overflow-x:hidden;scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
 *{box-sizing:border-box}
-body{margin:0;background:#6b7f66;color:var(--ink);font:400 15px/1.6 "Jost",system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden;touch-action:pan-y pinch-zoom}
+body{margin:0;background:#6b1d2e;color:var(--ink);font:400 15px/1.6 "Jost",system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden;touch-action:pan-y pinch-zoom}
 body{position:relative;min-height:100vh}
-#bg{position:absolute;inset:0;z-index:-1;background:#6b7f66 center/cover}
+#bg{position:absolute;inset:0;z-index:-1;background:#6b1d2e center/cover}
 main{width:var(--W);margin:0 auto;padding-bottom:40px}
 h1,h2,h3,.serif{font-family:"Cormorant Garamond",Georgia,serif;font-weight:500;margin:0}
 .wrap{margin:22px 14px;filter:drop-shadow(0 4px 10px rgba(8,20,45,.4))}
@@ -29,8 +29,8 @@ h1,h2,h3,.serif{font-family:"Cormorant Garamond",Georgia,serif;font-weight:500;m
 .amp{display:block;font-family:"Cormorant Garamond",serif;font-style:italic;color:var(--gold);font-size:34px;margin:2px 0}
 .hint{margin-top:34px;color:var(--soft);font-size:12px}
 /* diamond grid (page 2) */
-:root{--cream:#f3e8dc;--bluebase:#6b7f66;--s:calc(var(--W)*.725)}
-#bg{background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='380' height='380'%3E%3Cfilter id='f' x='0' y='0' width='100%' height='100%'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.004 0.6' numOctaves='2' seed='21' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.60  0 0 0 0 0.72  0 0 0 0 0.57  0 0.55 0 0 -0.22'/%3E%3C/filter%3E%3Crect width='100%' height='100%' filter='url(%23f)'/%3E%3C/svg%3E"),url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='420' height='420'%3E%3Cfilter id='f' x='0' y='0' width='100%' height='100%'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.003 0.45' numOctaves='3' seed='7' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.12  0 0 0 0 0.20  0 0 0 0 0.12  1.0 0 0 0 -0.38'/%3E%3C/filter%3E%3Crect width='100%' height='100%' filter='url(%23f)'/%3E%3C/svg%3E"),var(--bluebase)!important}
+:root{--cream:#f3e8dc;--bluebase:#6b1d2e;--s:calc(var(--W)*.725)}
+#bg{background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='380' height='380'%3E%3Cfilter id='f' x='0' y='0' width='100%' height='100%'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.004 0.6' numOctaves='2' seed='21' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.62  0 0 0 0 0.26  0 0 0 0 0.33  0 0.55 0 0 -0.22'/%3E%3C/filter%3E%3Crect width='100%' height='100%' filter='url(%23f)'/%3E%3C/svg%3E"),url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='420' height='420'%3E%3Cfilter id='f' x='0' y='0' width='100%' height='100%'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.003 0.45' numOctaves='3' seed='7' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.20  0 0 0 0 0.03  0 0 0 0 0.07  1.0 0 0 0 -0.38'/%3E%3C/filter%3E%3Crect width='100%' height='100%' filter='url(%23f)'/%3E%3C/svg%3E"),var(--bluebase)!important}
 body{background:var(--bluebase)}
 #bg{will-change:transform;transform:translateZ(0);backface-visibility:hidden}
 .sc{position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='f' x='0' y='0' width='100%' height='100%'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' seed='4' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.5  0 0 0 0 0.38  0 0 0 0 0.26  0.6 0 0 0 -0.2'/%3E%3C/filter%3E%3Crect width='100%' height='100%' filter='url(%23f)'/%3E%3C/svg%3E"),var(--cream);-webkit-mask:var(--m) center/100% 100% no-repeat;mask:var(--m) center/100% 100% no-repeat}
